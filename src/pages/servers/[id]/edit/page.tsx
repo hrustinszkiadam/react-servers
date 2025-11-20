@@ -1,9 +1,10 @@
 import CreateServerForm from '@/components/create-server';
 import ErrorDisplay from '@/components/error';
 import Loading from '@/components/loading';
+import { Button } from '@/components/ui/button';
 import { fetchServerById } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 
 export default function EditServerPage() {
   const { id } = useParams();
@@ -30,8 +31,14 @@ export default function EditServerPage() {
   }
 
   return (
-    <section className='flex grow items-center justify-center gap-8 p-4'>
+    <section className='flex grow flex-col items-center justify-center gap-8 p-4'>
       <CreateServerForm server={server} />
+      <Button
+        asChild
+        className='w-1/2 md:w-1/4 lg:w-1/5'
+      >
+        <Link to={`/servers/${id}`}>Back to Server</Link>
+      </Button>
     </section>
   );
 }
