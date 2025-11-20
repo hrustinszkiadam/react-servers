@@ -84,7 +84,7 @@ export const createServer = async (
   if (!response.ok) {
     const returnObj: FormState = {
       ...newState,
-      message: JSON.parse(await response.text()).message,
+      message: (await response.json()).message,
     };
     return returnObj;
   }
