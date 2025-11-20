@@ -12,7 +12,7 @@ export default function EditServerPage() {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['server', id],
+    queryKey: [`server-${id}`],
     queryFn: async () => {
       if (!id || Number.isNaN(Number(id))) {
         throw new Error('Invalid server ID provided');

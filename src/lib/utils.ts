@@ -154,7 +154,7 @@ export const updateServer = async (
   }
 
   queryClient.invalidateQueries({
-    queryKey: ['server', id],
+    queryKey: [`server-${id}`],
   });
   queryClient.invalidateQueries({
     queryKey: ['servers'],

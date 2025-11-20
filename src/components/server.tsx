@@ -10,7 +10,7 @@ export default function Server({ id }: { id: number }) {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['server', id],
+    queryKey: [`server-${id}`],
     queryFn: () => fetchServerById(Number(id)),
     staleTime: 1000 * 60 * 5,
     refetchInterval: 1000 * 60 * 5,
